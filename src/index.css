@@ -110,7 +110,7 @@ button:hover {
 .darkBorderBg,
 .glow {
   max-height: 70px;
-  max-width: 28%;
+  max-width: 26%;
   height: 100%;
   width: 100%;
   position: absolute;
@@ -184,7 +184,7 @@ button:hover {
 
 .white {
   max-height: 63px;
-  max-width: 28%;
+  max-width: 26%;
   border-radius: 10px;
   filter: blur(2px);
 }
@@ -215,7 +215,7 @@ button:hover {
 }
 .border {
   max-height: 59px;
-  max-width: 28%;
+  max-width: 26%;
   border-radius: 11px;
   filter: blur(0.5px);
 }
@@ -245,7 +245,7 @@ button:hover {
 }
 .darkBorderBg {
   max-height: 65px;
-  max-width: 28%;
+  max-width: 26%;
 }
 .darkBorderBg::before {
   content: "";
