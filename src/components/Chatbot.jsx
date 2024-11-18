@@ -12,13 +12,18 @@ const ChatBot = () => {
         setLoading(true);
         try {
             const data = await generateFlashcards(input);
+            if (!Array.isArray(data) || data.length === 0) {
+                throw new Error('No flashcards generated. Try a different topic.');
+            }
             setFlashcards(data);
         } catch (err) {
-            alert(err.message);
+            alert(err.message || 'An error occurred while generating flashcards.');
+            setFlashcards([]); // Reset flashcards on error
         } finally {
             setLoading(false);
         }
     };
+    
 
     return (
         <div className="container">
@@ -58,9 +63,11 @@ const ChatBot = () => {
             </div>
             {loading && <Loader />}
             <div className="flashcard-grid">
-                {flashcards.map((card, index) => (
-                    <Flashcard key={index} question={card.question} answer={card.answer} />
-                ))}
+                {flashcards
+                    .filter(card => card?.question?.trim() && card?.answer?.trim()) // Filter out invalid cards
+                    .map((card, index) => (
+                        <Flashcard key={index} question={card.question} answer={card.answer} />
+                    ))}
             </div>
         </div>
         
